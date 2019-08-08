@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bd="clr-namespace:BindingContextApp.ViewModels"
+    x:Name="RootPage"
+    xmlns:commands="clr-namespace:BindingContextApp.ViewModels.Commands"
+    x:Class="BindingContextApp.Views.ListProductPage">
+    <ContentPage.BindingContext>
+        <bd:ListProductPageViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <commands:NavigateToProductDetailPageCommand x:Key="NavToProDetailCommand" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <StackLayout BindableLayout.ItemsSource="{Binding Products}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Button HeightRequest="100"
+                                    Text="{Binding ProductName}"
+                                    CommandParameter="{Binding ProductId}"
+                                    Command="{Binding BindingContext.NavigateToSecondPageCommand, Source={x:Reference RootPage}}" />
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
