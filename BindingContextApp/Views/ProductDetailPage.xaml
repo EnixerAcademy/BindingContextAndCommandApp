@@ -9,6 +9,6 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <Label Text="" />
+        <Label Text="{Binding Product.ProductName}" />
     </ContentPage.Content>
 </ContentPage>

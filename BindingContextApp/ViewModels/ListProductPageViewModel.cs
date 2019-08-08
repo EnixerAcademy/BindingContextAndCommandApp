@@ -49,7 +49,7 @@ namespace BindingContextApp.ViewModels
                 }
             };
 
-            NavigateToProductDetailPageCommand = new Command<int>(NavigateToProductDetailPage, CanExecNavigateToProductDetailPage);
+            NavigateToProductDetailPageCommand = new Command<Models.Product>(NavigateToProductDetailPage, CanExecNavigateToProductDetailPage);
 
         }
 
@@ -68,13 +68,12 @@ namespace BindingContextApp.ViewModels
 
         public ICommand NavigateToProductDetailPageCommand { get; set; }
 
-        private async void NavigateToProductDetailPage(int productId)
+        private async void NavigateToProductDetailPage(Models.Product product)
         {
-            Application.Current.Properties["productId"] = productId;
-            await Application.Current.MainPage.Navigation.PushAsync(new Views.ProductDetailPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new Views.ProductDetailPage(product));
         }
 
-        private bool CanExecNavigateToProductDetailPage(int productId)
+        private bool CanExecNavigateToProductDetailPage(Models.Product product)
         {
             return true;
         }

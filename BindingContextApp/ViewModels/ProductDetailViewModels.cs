@@ -1,30 +1,34 @@
 ﻿using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace BindingContextApp.ViewModels
 {
-    public class ProductDetailViewModels
+    public class ProductDetailViewModels : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public ProductDetailViewModels()
         {
-            if (!Application.Current.Properties.ContainsKey("productId"))
-            {
-                Application.Current.MainPage.Navigation.PopAsync();
-            }
-            ProductId = (int)Application.Current.Properties["productId"];
         }
 
-        private int productId;
-        public int ProductId
+        private Models.Product product;
+        public Models.Product Product
         {
             get
             {
-                return productId;
+                return product;
             }
             set
             {
-                productId = value;
+                product = value;
+                OnPropertyChanged(nameof(Product));
             }
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
