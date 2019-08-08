@@ -9,11 +9,11 @@
     <ContentPage.BindingContext>
         <bd:ListProductPageViewModel />
     </ContentPage.BindingContext>
-    <ContentPage.Resources>
+    <!--<ContentPage.Resources>
         <ResourceDictionary>
             <commands:NavigateToProductDetailPageCommand x:Key="NavToProDetailCommand" />
         </ResourceDictionary>
-    </ContentPage.Resources>
+    </ContentPage.Resources>-->
 
     <ContentPage.Content>
         <StackLayout>
@@ -24,7 +24,7 @@
                             <Button HeightRequest="100"
                                     Text="{Binding ProductName}"
                                     CommandParameter="{Binding ProductId}"
-                                    Command="{Binding BindingContext.NavigateToSecondPageCommand, Source={x:Reference RootPage}}" />
+                                    Command="{Binding BindingContext.NavigateToProductDetailPageCommand, Source={x:Reference RootPage}}" />
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
