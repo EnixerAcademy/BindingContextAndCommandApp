@@ -1,6 +1,9 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+
+
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingContextApp.Android", "BindingContextApp.Android\BindingContextApp.Android.csproj", "{A2BF4181-F010-4124-86BD-F2F8663AB82C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingContextApp.iOS", "BindingContextApp.iOS\BindingContextApp.iOS.csproj", "{6300636C-B9C2-4312-B6FC-4C8000916DD8}"
